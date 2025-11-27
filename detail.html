@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Review - TechReview</title>
+    <meta name="description" content="Đánh giá chi tiết sản phẩm công nghệ - TechReview">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="TechReview">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2'%3E%3Crect x='2' y='3' width='20' height='14' rx='2'/%3E%3Cline x1='8' y1='21' x2='16' y2='21'/%3E%3Cline x1='12' y1='17' x2='12' y2='21'/%3E%3C/svg%3E">
+    
+    <script type="application/ld+json" id="articleSchema">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "publisher": {
+            "@type": "Organization",
+            "name": "TechReview"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>TechReview</span>
+            </a>
+            
+            <nav class="nav-desktop">
+                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="index.html#phone" class="nav-link">Điện thoại</a>
+                <a href="index.html#laptop" class="nav-link">Laptop</a>
+                <a href="index.html#accessory" class="nav-link">Phụ kiện</a>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="icon-btn" onclick="toggleBookmarksPanel()" title="Đã lưu" aria-label="Xem bài viết đã lưu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span class="bookmark-count" id="bookmarkCount">0</span>
+                </button>
+                
+                <button class="icon-btn" onclick="toggleDarkMode()" title="Chế độ tối" aria-label="Chuyển đổi chế độ tối">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        
+        <nav class="nav-mobile" id="mobileNav">
+            <a href="index.html" class="nav-link">Trang chủ</a>
+            <a href="index.html#phone" class="nav-link">Điện thoại</a>
+            <a href="index.html#laptop" class="nav-link">Laptop</a>
+            <a href="index.html#accessory" class="nav-link">Phụ kiện</a>
+            <div class="mobile-actions">
+                <button class="mobile-action-btn" onclick="toggleBookmarksPanel()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Đã lưu (<span id="bookmarkCountMobile">0</span>)
+                </button>
+                <button class="mobile-action-btn" onclick="toggleDarkMode()">
+                    <svg class="sun-icon-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                    </svg>
+                    Chế độ tối
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Bookmarks Panel -->
+    <div class="bookmarks-overlay" id="bookmarksOverlay" onclick="toggleBookmarksPanel()"></div>
+    <aside class="bookmarks-panel" id="bookmarksPanel">
+        <div class="bookmarks-header">
+            <h3>Bài viết đã lưu</h3>
+            <button class="close-btn" onclick="toggleBookmarksPanel()" aria-label="Đóng">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="bookmarks-list" id="bookmarksList"></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main detail-main">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6"></path>
+                </svg>
+                <span>Quay lại</span>
+            </a>
+
+            <article class="article" id="articleContent"></article>
+
+            <section class="comments-section" id="commentsSection">
+                <h2 class="comments-title">Bình luận (<span id="commentCount">0</span>)</h2>
+                
+                <form class="comment-form" id="commentForm" onsubmit="submitComment(event)">
+                    <div class="form-group">
+                        <input type="text" id="commentName" placeholder="Tên của bạn" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="commentContent" placeholder="Viết bình luận..." required class="form-textarea" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Gửi bình luận</button>
+                </form>
+                
+                <div class="comments-list" id="commentsList"></div>
+            </section>
+
+            <section class="related-section">
+                <h2 class="related-title">Bài viết liên quan</h2>
+                <div class="related-grid" id="relatedGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Về đầu trang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <span>TechReview</span>
+                    </a>
+                    <p>Nguồn thông tin đáng tin cậy về công nghệ</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Danh mục</h4>
+                    <a href="index.html#phone">Điện thoại</a>
+                    <a href="index.html#laptop">Laptop</a>
+                    <a href="index.html#accessory">Phụ kiện</a>
+                    <a href="index.html#audio">Âm thanh</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên hệ</h4>
+                    <a href="#">Giới thiệu</a>
+                    <a href="#">Liên hệ</a>
+                    <a href="#">Chính sách</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechReview. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
